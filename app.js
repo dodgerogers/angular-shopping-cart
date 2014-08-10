@@ -3,12 +3,12 @@ function CartController($scope) {
 	$scope.bill = {};
 	$scope.shoppingCart = [];
 	$scope.items = [
-		{title: "Intense M1 Frameset", price: 2000.00, quantity: 1},
-		{title: "Azonic DS1 Frameset", price: 300.00, quantity: 1},
-		{title: "Marazocchi DJ1", price: 250.00, quantity: 1},
-		{title: "Profile Cranks", price: 200.00, quantity: 1},
-		{title: "Sun Ringle Hubs on Mavic 321's", price: 190.00, quantity: 1},
-		{title: "North Shore Billet Derailleur Hanger", price: 25.00, quantity: 1}
+		{title: "Intense M1 Frameset", desciption: "Curabitur id enim vel neque blandit molestie. Nunc vehicula diam lorem, viverra tincidunt felis gravida vel.", price: 2000.00, quantity: 1},
+		{title: "Azonic DS1 Frameset", desciption: "Duis odio erat, facilisis sed nulla sit amet, auctor fringilla sem.", price: 300.00, quantity: 1},
+		{title: "Marazocchi DJ1", desciption: "Sed enim ante, aliquam vel aliquam eu, semper nec nisl.", price: 250.00, quantity: 1},
+		{title: "Profile Cranks", desciption: "Fusce elementum augue nulla, non tempor libero placerat pellentesque. ", price: 200.00, quantity: 1},
+		{title: "Sun Ringle Hubs on Mavic 321's", desciption: "Curabitur id enim vel neque blandit molestie. ", price: 190.00, quantity: 1},
+		{title: "North Shore Billet Derailleur Hanger", desciption: "Ut id dignissim neque, id dapibus elit interdum.", price: 25.00, quantity: 1}
 	];
 	
 	$scope.subTotal = function(){
@@ -50,7 +50,11 @@ function CartController($scope) {
 	$scope.removeFromCart = function(item){
 		angular.forEach($scope.shoppingCart, function(value, index){
 			if(value.title === item.title){
-				$scope.shoppingCart.splice(index, 1);
+				if(item.quantity > 1) {
+					item.quantity = item.quantity - 1;
+				} else {
+					$scope.shoppingCart.splice(index, 1);
+				}
 			}
 		});
 	};
