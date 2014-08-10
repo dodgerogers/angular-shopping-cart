@@ -30,20 +30,26 @@ function CartController($scope) {
 	$scope.$watch($scope.totalCart, calculateDiscount);
 	
 	$scope.addToCart = function(item){
-		var newItem = angular.copy(item);
-		var counter = 0;
+		var updated = false;
 		
 		// updating an existing item quantity
 		angular.forEach($scope.shoppingCart, function(value, index) {
 			if(value.title === item.title){
 				value.quantity = parseInt(value.quantity) + parseInt(item.quantity);
-				counter++
+				updated = true
 			}
 		});
 		
-		// if counter is still zero, it means nothing was updated
-		if(counter == 0) {
+		// if updated is false, push new item
+		if(updated === false) {
+			var newItem = angular.copy(item);
 			$scope.shoppingCart.push(newItem);
+		}
+	};
+	
+	$scope.emptyCart = function(){
+		if (confirm('Are you sure you want to empty your cart?')) {
+			$scope.shoppingCart = [];
 		}
 	};
 	

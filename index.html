@@ -30,6 +30,7 @@
 							{{cartItem.price | currency}} x {{cartItem.quantity}}
 						<a ng-click="removeFromCart(cartItem)">remove</a></p>
 					</div>	
+					<p><a ng-click="emptyCart()">Empty cart</a></p>
 				
 					<p>Total: {{totalCart() | currency}}</p>
 					<p>Discount: {{bill.discount | currency}}</p>
