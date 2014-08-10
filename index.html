@@ -4,8 +4,10 @@
 </head>
 <body>
 	<div class="container">
+		
 		<div ng-controller="CartController">
-			<h1>Angular Bike Shop</h1><hr>
+			<h1>Angular Bike Shop</h1>
+			<hr>
 			<div class="row">
 				<div class="col-md-8">
 					<div ng-repeat="item in items">	
@@ -21,6 +23,7 @@
 							<button class="btn btn-success" ng-click="addToCart(item)">Add to cart</button>
 						</div>
 					</div>
+					
 				</div>		
 				<div class="col-md-4 well">
 					<h4>Shopping Cart</h4>
@@ -36,6 +39,7 @@
 					<p>Discount: {{bill.discount | currency}}</p>
 					<hr>
 					<p><b>Subtotal:</b> {{ subTotal() | currency}}<p>	
+						
 				</div>	
 			</div>		
 		</div>
