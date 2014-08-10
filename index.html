@@ -10,20 +10,20 @@
 					<div class="col-md-8">
 						<div ng-repeat="item in items">
 							
-								<div class="col-md-6">
-									<div class="well">
-									<h4>{{item.title}}</h4>
-									<p>{{item.price | currency}}</p>
-						
-										<div class="form-group">
-										    <label for="inputPassword" class="control-label">Quantity</label>
-										    <input ng-model="item.quantity">							  
-										</div>
-							
-									<button class="btn btn-success" ng-click="addToCart(item)">Add to cart</button>
-									<button class="btn btn-danger" ng-click="removeFromCart(item)">Remove</button>
+							<div class="col-md-6">
+								<div class="well">
+								<h4>{{item.title}}</h4>
+								<p>{{item.price | currency}}</p>
+					
+									<div class="form-group">
+									    <label for="inputPassword" class="control-label">Quantity</label>
+									    <input ng-model="item.quantity">							  
 									</div>
-								</div>	
+						
+								<button class="btn btn-success" ng-click="addToCart(item)">Add to cart</button>
+								<button class="btn btn-danger" ng-click="removeFromCart(item)">Remove</button>
+								</div>
+							</div>	
 						
 						</div>
 					</div>		

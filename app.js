@@ -2,12 +2,12 @@ function CartController($scope) {
 
 	$scope.bill = {};
 	$scope.items = [
-		{title: "Intense M1 Frameset", price: 2000.00, quantity: 1},
-		{title: "Azonic DS1 Frameset", price: 300.00, quantity: 1},
-		{title: "Marazocchi DJ1", price: 250.00, quantity: 1},
-		{title: "Profile Cranks", price: 200.00, quantity: 1},
-		{title: "Sun Ringle Hubs on Mavic 321's", price: 190.00, quantity: 1},
-		{title: "North Shore Billet Derailleur Hanger", price: 25.00, quantity: 1}
+		{title: "Intense M1 Frameset", price: 2000.00},
+		{title: "Azonic DS1 Frameset", price: 300.00},
+		{title: "Marazocchi DJ1", price: 250.00},
+		{title: "Profile Cranks", price: 200.00},
+		{title: "Sun Ringle Hubs on Mavic 321's", price: 190.00},
+		{title: "North Shore Billet Derailleur Hanger", price: 25.00}
 	];
 	
 	$scope.shoppingCart = [];
@@ -31,11 +31,21 @@ function CartController($scope) {
 	$scope.$watch($scope.totalCart, calculateDiscount);
 	
 	$scope.addToCart = function(item) {
-		$scope.shoppingCart.push(item);
+		// See if the item exists in the cart
+		var index = $scope.shoppingCart.indexOf(item);
+		
+		// Copy the item
+		var newItem = angular.copy(item);
+		
+		// push to the cart array
+		$scope.shoppingCart.push(newItem);
 	};
 	
 	$scope.removeFromCart = function(item) {
-		var index = $scope.shoppingCart.indexOf(item);
-		$scope.shoppingCart.splice(index,1);
+		angular.forEach($scope.shoppingCart, function(value, index){
+			if(value.title === item.title) {
+				$scope.shoppingCart.splice(index, 1);
+			}
+		});
 	};
 }
