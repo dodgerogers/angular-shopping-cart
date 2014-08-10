@@ -1,0 +1,52 @@
+<html lang='en' ng-app>
+	<head>
+		<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="container">
+			<div ng-controller="CartController">
+				<h1>Angular Bike Shop</h1><hr>
+				<div class="row">
+					<div class="col-md-8">
+						<div ng-repeat="item in items">
+							
+								<div class="col-md-6">
+									<div class="well">
+									<h4>{{item.title}}</h4>
+									<p>{{item.price | currency}}</p>
+						
+										<div class="form-group">
+										    <label for="inputPassword" class="control-label">Quantity</label>
+										    <input ng-model="item.quantity">							  
+										</div>
+							
+									<button class="btn btn-success" ng-click="addToCart(item)">Add to cart</button>
+									<button class="btn btn-danger" ng-click="removeFromCart(item)">Remove</button>
+									</div>
+								</div>	
+						
+						</div>
+					</div>		
+					<div class="col-md-4 well">
+						<h4>Shopping Cart</h4>
+					
+						<div ng-repeat="item in shoppingCart">
+							<p><b>{{item.title}}</b> - 
+								{{item.price | currency}} x {{item.quantity}}</p>
+						</div>	
+					
+						<p>Total: {{totalCart() | currency}}</p>
+						<p>Discount: {{bill.discount | currency}}</p>
+						<hr>
+						<p><b>Subtotal:</b> {{ subTotal() | currency}}<p>	
+					</div>	
+				</div>		
+			</div>
+		<footer>
+			<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.21/angular.min.js"></script>
+			<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+			<script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+			<script type="text/javascript" src="app.js"></script>
+		</footer>
+	</body>
+</html>
