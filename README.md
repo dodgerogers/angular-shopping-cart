@@ -1,0 +1,1 @@
+Simple product and shopping cart AngularJs app
