@@ -41,7 +41,7 @@ function CartController($scope) {
 		});
 		
 		// if updated is false, push new item
-		if(updated === false) {
+		if(!updated) {
 			var newItem = angular.copy(item);
 			$scope.shoppingCart.push(newItem);
 		}
